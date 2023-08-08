@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Sismos</title>
+</head>
+<body>
+    <h1>Lista de Sismos en Chile</h1>
+    <form method="post" action="{% url 'busqueda' %}">
+        {% csrf_token %}
+        <label for="fecha_busqueda">Buscar por fecha:</label>
+        <input type="date" id="fecha_busqueda" name="fecha_busqueda">
+        <button type="submit">Buscar</button>
+    </form>
+    <ul>
+        {% for sismo in sismos %}
+            <li>{{ sismo.fecha|date:"M. d, Y, H:i" }} - Magnitud: {{ sismo.magnitud }} - Profundidad: {{ sismo.profundidad }} - Ubicacion {{ sismo.ref_geografica }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
