@@ -1,30 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container mt-4">
-        <h1 class="mb-4">Lista de Sismos en Chile</h1>
-        <form method="post" action="{% url 'busqueda' %}">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="fecha_busqueda">Buscar por fecha:</label>
-                <input type="date" class="form-control" id="fecha_busqueda" name="fecha_busqueda">
-            </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
+    <div class="container mt-4 p-0">
+        <h1 class="mb-4 text-center">Sismos en Chile en tiempo real</h1>
+        <div class="container m-1 p-1">
+            <form method="post" action="{% url 'busqueda' %}" class="text-center">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="fecha_busqueda">Buscar por fecha:</label>
+                    <input type="date" class="form" id="fecha_busqueda" name="fecha_busqueda">
+                </div>
+                <button type="submit" class="btn btn-primary m-1">Buscar</button>
+            </form>
+        </div>
         
-        <div class="row mt-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
             {% for sismo in sismos %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
+            <div class="col p-0">
+                <div class="card d-flex flex-column m-1">
                     <div class="card-body">
-                        <h5 class="card-title">Magnitud: {{ sismo.magnitud }} ML</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Profundidad: {{ sismo.profundidad }}</h6>
-                        <p class="card-text">Fecha: {{ sismo.fecha|date:"d M Y" }}</p>
-                        <p class="card-text">Hora: {{ sismo.fecha|time:"H:i" }}</p>
-                        <p class="card-text">Latitud: {{ sismo.latitud }}</p>
-                        <p class="card-text">Longitud: {{ sismo.longitud}}</p>
-                        <p class="card-text">Profundidad (Km): {{ sismo.profundidad }}</p>
-                        <p class="card-text">Referencia Geográfica: {{ sismo.ref_geografica }}</p>
+                        <h5 class="card-title m-0 p-0">Magnitud: {{ sismo.magnitud }} ML</h5>
+                        <h6 class="card-subtitle text-muted p-0 m-0">Profundidad: {{ sismo.profundidad }} Km</h6>
+                        <p class="card-text p-0 m-0"><strong>Fecha:</strong> {{ sismo.fecha|date:"d M Y" }}, <strong>Hora:</strong> {{ sismo.fecha|time:"H:i" }}</p>
+                        <p class="card-text p-0 m-0"><strong>Latitud:</strong> {{ sismo.latitud }}, <strong>Longitud:</strong> {{ sismo.longitud}}</p>
+                        <p class="card-text p-0 m-0"><strong>Referencia Geográfica:</strong> {{ sismo.ref_geografica }}</p>
                         <div id="map_{{ sismo.id }}" class="map"></div>
                         <!-- Agrega aquí la lógica para mostrar la ubicación del sismo en un mapa -->
                     </div>

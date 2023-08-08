@@ -1,0 +1,13 @@
+
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand">Buscar sismos por fecha</a>
+      <form class="d-flex" method="post" action="{% url 'busqueda' %}">
+        {% csrf_token %}
+        <input class="form-control me-2" type="date" placeholder="Buscar por Fecha" aria-label="Search"  id="fecha_busqueda" name="fecha_busqueda">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+
+ 
