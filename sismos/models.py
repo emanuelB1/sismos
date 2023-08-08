@@ -2,8 +2,8 @@ from django.db import models
 
 class Sismo(models.Model):
     fecha = models.DateTimeField()
-    profundidad = models.CharField(max_length=10)
-    magnitud = models.CharField(max_length=10)
+    profundidad = models.FloatField()
+    magnitud = models.FloatField()
     ref_geografica = models.CharField(max_length=100)
     fecha_update = models.DateTimeField()
     latitud = models.FloatField()  # Agregar campo para latitud

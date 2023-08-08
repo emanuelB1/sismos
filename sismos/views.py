@@ -4,6 +4,7 @@ from .utils import consumir_api_guardar_sismos
 from datetime import datetime, date
 
 
+
 def lista_sismos(request):
     consumir_api_guardar_sismos()
     fecha_actual = date.today()
@@ -23,3 +24,8 @@ def busqueda(request):
         sismos = Sismo.objects.filter(fecha__date=fecha_actual).order_by('-fecha')
 
     return render(request, 'index.html', {'sismos': sismos})
+
+
+
+
+
