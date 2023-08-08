@@ -17,7 +17,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Magnitud: {{ sismo.magnitud }}</h5>
+                        <h5 class="card-title">Magnitud: {{ sismo.magnitud }} ML</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Profundidad: {{ sismo.profundidad }}</h6>
                         <p class="card-text">Fecha: {{ sismo.fecha|date:"d M Y" }}</p>
                         <p class="card-text">Hora: {{ sismo.fecha|time:"H:i" }}</p>
@@ -25,6 +25,7 @@
                         <p class="card-text">Longitud: {{ sismo.longitud}}</p>
                         <p class="card-text">Profundidad (Km): {{ sismo.profundidad }}</p>
                         <p class="card-text">Referencia Geográfica: {{ sismo.ref_geografica }}</p>
+                        <div id="map_{{ sismo.id }}" class="map"></div>
                         <!-- Agrega aquí la lógica para mostrar la ubicación del sismo en un mapa -->
                     </div>
                 </div>
@@ -33,3 +34,5 @@
         </div>
     </div>
 {% endblock content %}
+
+
