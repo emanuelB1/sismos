@@ -1,0 +1,20 @@
+.map {
+    width: 100%;
+    height: 200px;
+}
+
+
+.info {
+        height: auto !important;
+        width: 100% !important; 
+        max-width: 339.200px !important;
+        justify-content: center;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 767px) {
+    .busqueda {
+        display: none;
+    }
+
+}
