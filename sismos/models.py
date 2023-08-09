@@ -5,7 +5,6 @@ class Sismo(models.Model):
     profundidad = models.FloatField()
     magnitud = models.FloatField()
     ref_geografica = models.CharField(max_length=100)
-    fecha_update = models.DateTimeField()
     latitud = models.FloatField()  # Agregar campo para latitud
     longitud = models.FloatField()  # Agregar campo para longitud
 
